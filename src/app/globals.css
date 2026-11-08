@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-jetbrains-mono: "JetBrains Mono", monospace;
+  }
+
+  body {
+    @apply bg-canvas text-obsidian-700 font-sans text-body antialiased selection:bg-cobalt-100 selection:text-cobalt-800;
+  }
+
+  /* Enforce tabular numbers on all metric readouts and evaluation tables */
+  .numeric-data,
+  table td,
+  .text-kpi {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  /* Standard AnnexZero Hairline Card */
+  .annex-card {
+    @apply bg-surface border border-border-subtle rounded-card transition-shadow duration-150 hover:shadow-card-hover;
+  }
+
+  /* KPI Summary Card (Refinement Prompt 1: 20px padding) */
+  .annex-kpi-card {
+    @apply bg-surface border border-border-subtle rounded-card p-5 flex flex-col justify-between;
+  }
+
+  /* Primary Cobalt Header Action Button (Max 1 per screen) */
+  .btn-primary-cobalt {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-btn bg-cobalt-700 hover:bg-cobalt-800 text-white font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-700 focus-visible:ring-offset-1;
+  }
+
+  /* Secondary Ghost / Hairline Button */
+  .btn-secondary-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-btn bg-surface hover:bg-slate-50 text-obsidian-700 border border-border-subtle font-medium text-body transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-700;
+  }
+
+  /* Semantic EU AI Act Compliance Badges */
+  .badge-verified {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-tag text-micro uppercase bg-status-verified-bg text-status-verified-text border border-status-verified-border;
+  }
+
+  .badge-drift {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-tag text-micro uppercase bg-status-drift-bg text-status-drift-text border border-status-drift-border;
+  }
+
+  .badge-blocker {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-tag text-micro uppercase bg-status-blocker-bg text-status-blocker-text border border-status-blocker-border;
+  }
+
+  /* Monospace Artifact Source Chip */
+  .artifact-chip {
+    @apply inline-flex items-center px-2 py-0.5 rounded-tag font-mono text-mono bg-slate-100 text-obsidian-700 border border-border-subtle;
+  }
+}
